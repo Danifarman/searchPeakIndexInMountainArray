@@ -62,3 +62,4 @@ int main() {
     return 0;
 }
 //function ny index return krny ka bola lakin ma value return kr raha ok boss
+//all is well

@@ -1,0 +1,64 @@
+/peakindexinmountainarrycode
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <vector>
+using namespace std;
+/* what is peak element
+ An element which is greater than its previous and next element
+ ex :  if(v[mid-1]<v[mid]>v[mid+1])
+*/
+int peakIndexInMountainArray(vector<int> &v){
+    int st = 1, end = v.size()-2, mid = 0;
+    
+    while(st <= end){
+        
+        mid = st+(end - st)/2;
+        
+        //agar mid he peak ho
+        if(v[mid-1] < v[mid] && v[mid] > v[mid+1]){
+            return v[mid];
+        }
+        
+// if mid is not peak then check mid is in increasing(left) array or in decreasing array(right);
+   
+   //check if in increasing array
+   if(v[mid-1]<v[mid]){//it mean mid in increasing order bcz its greater than its previous element
+   
+      st = mid + 1;/*it means if mid agar increasing array ma ha mid sy pichy waly sary element increasing ma hon gy so hamay mid sy pichy check krny ke zarorat ni
+          so mid+1*/
+    }
+    
+    
+    else{//if mid in decreasing order
+    
+      end = mid - 1;
+}
+}
+return -1;
+
+}
+
+
+
+
+
+
+
+
+
+int main() {
+   vector<int> v;
+   /*In question it says that array is sorted in assending and desending order means may be half is assending half is decesending or some part assending other is decending
+   and vise versa.
+   */
+   v = {0,3,8,9,5,2};
+   int mid = peakIndexInMountainArray(v);
+   if(mid != -1){
+   cout<<"Here is peak element : "<<mid;
+   }
+   else
+   cout<<"peak not exsist ";
+   
+    return 0;
+}
+//function ny index return krny ka bola lakin ma value return kr raha ok boss
